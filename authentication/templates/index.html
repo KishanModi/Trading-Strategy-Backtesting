@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/static/css/utilities.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>Know Your Trades</title>
+</head>
+
+<body>
+    <!-- Navbar-->
+    <div class="navbar">
+        <div class="container flex">
+            <h1 class="logo"><b><a href="{{url_for('main.index')}}">Know Your Trades</a></b></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{url_for('main.index')}}">Home</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li>
+                        <a href="{{url_for('main.profile')}}">Profile</a>
+                    </li>
+                    {% endif %} {% if not current_user.is_authenticated %}
+                    <li><a href="{{url_for( 'auth.login')}} ">Login</a></li>{% endif %} {% if not current_user.is_authenticated %}
+                    <li><a class="nav-link" href="{{ url_for( 'auth.signup') }} ">Register</a></li> {% endif %}
+                    <li><a href="#">About</a></li>
+                    {% if current_user.is_authenticated %}
+                    <li><a class="nav-link" href="{{ url_for( 'auth.logout') }} ">Logout</a></li> {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!--Showcase-->
+    <section class="showcase">
+        <div class="container grid">
+            <div class="showcase-text">
+                <h1>Trading Strategy Backtesting</h1> 
+                <p>Perform Backtesting On provided NasDaq as Well as NSE stocks and check the historical Trend as well as Predicted Profit/Loss on Provided Time Period.</p>
+                <a href="{{url_for('main.dashboard')}}" class="btn btn-outline">Dashboard</a>
+        </div>
+        <!-- <div class="showcase-form card">
+            <h2>Subscribe to Newsletter</h2>
+            <form  name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
+                <p class="hidden">
+                    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                  </p>
+                <div class="form-control">
+                    <input type="text"name="firstname" placeholder="First Name" required>
+                </div>
+                <div class="form-control">
+                    <input type="text"name="lastname" placeholder="Last Name" required>
+                </div>
+                <div class="form-control">
+                    <input type="email"name="email" placeholder="Email" required>
+                </div>
+                <input type="submit" value="Send" class="btn btn-primary">
+            </form>
+        </div> -->
+        </div>
+    </section>
+    <!--Stats-->
+    <section class="stats">
+        <div class="container">
+            <h3 class="stats-heading text-center my-1">
+                Welcome to Know Your Trades!
+                Try out Different Features and see how it works.
+            </h3>
+            <div class="grid grid-3 text-center my-4">
+                <div>
+                    <i class="fas fa-server fa-3x"></i>
+                    <h3>5804</h3>
+                    <p class="tex-secondary">Stocks</p>
+                </div>
+                <div>
+                    <i class="fas fa-upload fa-3x"></i>
+                    <h3>22 Seconds</h3>
+                    <p class="tex-secondary">Response time</p>
+                </div>
+                <div>
+                    <i class="fas fa-project-diagram fa-3x"></i>
+                    <h3>2</h3>
+                    <p class="tex-secondary">Machine Learning Models</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Cli-->
+    <section class="cli">
+        <div class="container grid">
+            <img id="gg " src="/static/images/gg.jpg" alt=" " />
+            <div class="card">
+                <h3>Easy to use, understand</h3>
+            </div>
+            <div class="card">
+                <h3>Test within seconds.</h3>
+            </div>
+        </div>
+    </section>
+    <!--Cloud-->
+    <section class="cloud bg-primary my-2 py-2">
+        <div class="container grid">
+            <div class="text-center">
+                <h2 class="lg">Trading Strategy Backtesting</h2>
+                <p class="lead my-1">
+                    Trade Using Backtested Strategies Which Provides Huge Gain in Long run.
+                </p>
+                <a href="https://www.investopedia.com/articles/trading/05/030205.asp" class="btn btn-dark">Read More</a>
+            </div>
+            <img src="/static/images/xd.png " alt=" " />
+        </div>
+    </section>
+    <!--Languages-->
+    <section class="languages">
+        <h2 class="md text-center my-2">Used Technologies</h2>
+        <div class="container flex">
+            <div class="card">
+                <h4>Bootstrap4</h4>
+                <img src="https://img.icons8.com/color/80/000000/bootstrap.png " alt=" " />
+            </div>
+            <div class="card">
+                <h4>Python</h4>
+                <img src="/static/images/python.png " alt=" " />
+            </div>
+            <div class="card">
+                <h4>SQL</h4>
+                <img src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/80/000000/external-sql-server-big-data-wanicon-lineal-color-wanicon.png " alt=" " />
+            </div>
+            <div class="card">
+                <h4>JavaScript</h4>
+                <img src="https://img.icons8.com/color/80/000000/javascript--v2.png " alt=" " />
+            </div>
+            <div class="card">
+                <h4>Flask</h4>
+                <img src="https://img.icons8.com/ios-filled/80/000000/flask.png " alt=" " />
+            </div>
+            <div class="card">
+                <h4>Heroku</h4>
+                <img src="https://img.icons8.com/ios/80/000000/heroku.png " alt=" " />
+            </div>
+        </div>
+    </section>
+    <!--Footer-->
+    <footer class="footer bg-dark py-5">
+        <div class="container grid grid-3">
+            <div>
+                <h1>Know Your Trades</h1>
+                <p>Copyright &copy; 2021</p>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{url_for('main.index')}}" ">Home</a></li>
+                    <li><a href="{{url_for( 'auth.login')}} ">Login</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="social ">
+                <a href="# "><i class="fab fa-github fa-2x "></i></a>
+                <a href="# "><i class="fab fa-facebook fa-2x "></i></a>
+                <a href="# "><i class="fab fa-instagram fa-2x "></i></a>
+                <a href="# "><i class="fab fa-twitter fa-2x "></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
